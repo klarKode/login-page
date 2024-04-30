@@ -6,33 +6,49 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="style.css" rel="stylesheet">
-	<script src="script.js"></script>
+	<script src="script.js" type="module"></script>
 </head>
 
 <body>
 
 	<div class="login-card">
 
-		<h1>Login</h1>
+		<h1>
+			<i class="nf nf-md-login"></i>
+			Login
+		</h1>
 
-		<form class="login">
-
-			<div class="input-wrapper">
-				<input id="email" type="email" name="email" placeholder="Email" />
+		<div class="input-wrapper">
+			<div class="input-prefix">
+				<i class="nf nf-fa-user"></i>
 			</div>
-
-			<div class="input-wrapper">
-				<input id="password" type="password" name="password" placeholder="Password" />
+			<input id="email" type="email" name="email" placeholder="Email" />
+			<div class="input-suffix">
+				<i id="emailSuffix" class="nf nf-fa-at"></i>
 			</div>
+		</div>
 
-			<div class="actions">
-				<a href="#">Register</a>
-				<button type="button" class="btn" onClick="toggleHidden()">
-					Login
-				</button>
+		<div class="input-wrapper">
+			<div class="input-prefix">
+				<i class="nf nf-fa-key"></i>
 			</div>
+			<input id="password" type="password" name="password" placeholder="Password" />
+			<button type="button" class="pwd-btn input-suffix">
+				<i class="nf nf-fa-eye"></i>
+			</button>
+		</div>
 
-		</form>
+		<div class="actions">
+			<a href="#">
+				<i class="nf nf-fa-user_plus"></i>
+				Register
+			</a>
+			<button type="button" class="btn login-btn">
+				<i class="nf nf-md-login"></i>
+				Login
+			</button>
+		</div>
+
 	</div>
 
 </body>

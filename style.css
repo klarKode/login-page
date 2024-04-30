@@ -1,3 +1,5 @@
+@import url("https://www.nerdfonts.com/assets/css/webfont.css");
+
 :root {
 	--color-rosewater: #f5e0dc;
 	--color-flamingo: #f2cdcd;
@@ -47,11 +49,17 @@ body {
 	background-color: var(--color-base);
 }
 
+button,
+a {
+	cursor: pointer;
+}
+
 .login-card {
 	width: 100%;
-	max-width: 400px;
+	max-width: 500px;
 	padding: 24px;
 	background-color: var(--color-surface0);
+	border: 2px solid var(--color-surface1);
 	border-radius: 20px;
 }
 
@@ -67,13 +75,43 @@ form.login {
 .input-wrapper {
 	width: 100%;
 	padding: 6px 0;
+	display: flex;
+	align-items: stretch;
+	justify-content: center;
+}
+
+.input-prefix,
+.input-suffix {
+	width: 42px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid var(--color-rosewater);
+}
+
+.input-prefix {
+	background-color: var(--color-base);
+	color: var(--color-subtext0);
+	border-right: none;
+	border-radius: 10px 0 0 10px;
+}
+
+.input-suffix {
+	background-color: var(--color-base);
+	color: var(--color-subtext0);
+	border-left: none;
+	border-radius: 0 10px 10px 0;
 }
 
 .input-wrapper input {
-	width: 100%;
-	padding: 6px 12px;
+	flex: 1;
+	padding: 10px 16px;
 	font-size: 1em;
-	border-radius: 100px;
+	background-color: var(--color-base);
+	color: var(--color-text);
+	border: none;
+	border-top: 1px solid var(--color-rosewater);
+	border-bottom: 1px solid var(--color-rosewater);
 }
 
 .actions {
@@ -83,14 +121,20 @@ form.login {
 	padding: 12px;
 }
 
-.btn {
-	padding: 6px 10px;
+.login-btn {
+	padding: 8px 16px 6px 16px;
 	text-transform: uppercase;
 	font-weight: bold;
-	border: none;
-	border-radius: 100px;
+	background-color: var(--color-rosewater);
+	border: 2px solid var(--color-rosewater);
+	border-radius: 8px;
 }
 
 a {
-	color: var(--color-sapphire);
+	color: var(--color-blue);
+	text-decoration: none;
+}
+
+a i {
+	font-size: 1em;
 }
