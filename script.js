@@ -5,7 +5,7 @@ const passwordInput = document.querySelector('#password');
 const passwordSuffix = document.querySelector('.pwd-btn');
 const loginButton = document.querySelector('.login-btn');
 
-const emailRegex = /[^@]*@test\.no/g;
+const emailRegex = /[^@]*@stud\.noroff\.no/g;
 
 function emailChecker() {
 	// execute regular expression on email input value
@@ -31,13 +31,30 @@ function togglePasswordVisibility() {
 }
 passwordSuffix.addEventListener('click', () => togglePasswordVisibility()); // run toggle function on button click
 
-function submitForm() {
+async function submitForm() {
+	let emailMatch = emailRegex.exec(emailInput.value);
+
+	if (!emailMatch) {
+		console.error('Email is not valid!');
+	}
+
+	if (passwordInput.length < 8) {
+		console.error('Password is too short!');
+	}
+
 	const data = {
 		email: emailInput.value,
 		password: passwordInput.value,
 	};
 
-	console.log(data);
+	const response = await fetch(url, {
+		method: "POST", // *GET, POST, PUT, DELETE, etc.
+		headers: { "Content-Type": "application/json" },
+		body: JSON.stringify(data), // body data type must match "Content-Type" header
+	});
+	const responseData = response.json(); // parses JSON response into native JavaScript objects
+
+	console.log(responseData);
 }
 loginButton.addEventListener('click', () => submitForm());
 
