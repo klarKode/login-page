@@ -32,22 +32,12 @@ function togglePasswordVisibility() {
 passwordSuffix.addEventListener('click', () => togglePasswordVisibility()); // run toggle function on button click
 
 async function submitForm() {
-	let emailMatch = emailRegex.exec(emailInput.value);
-
-	if (!emailMatch) {
-		console.error('Email is not valid!');
-	}
-
-	if (passwordInput.length < 8) {
-		console.error('Password is too short!');
-	}
-
 	const data = {
 		email: emailInput.value,
 		password: passwordInput.value,
 	};
 
-	const response = await fetch(url, {
+	const response = await fetch('https://test.no', {
 		method: "POST", // *GET, POST, PUT, DELETE, etc.
 		headers: { "Content-Type": "application/json" },
 		body: JSON.stringify(data), // body data type must match "Content-Type" header
@@ -55,6 +45,9 @@ async function submitForm() {
 	const responseData = response.json(); // parses JSON response into native JavaScript objects
 
 	console.log(responseData);
+	const res = responseData.data;
+
+	localStorage.setItem('token', res.token);
 }
 loginButton.addEventListener('click', () => submitForm());
 
